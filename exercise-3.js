@@ -1,25 +1,18 @@
 function highestScore (students) {
-    var hasilArray =[];
     var hasil = {};
     for(var i = 0 ;i < students.length;i++){
-        var pengulangan = 0;
-        for(var j = 0;j < students.length;j++){
-            if(students[i].class === students[j].class && students[i].name !== students[j].name && students[i].score >= students[j].score){
-                hasilArray.push(students[i]);
-            }
-            if(students[i].class === students[j].class){
-                pengulangan++
-            }
-            if(j === students.length-1 && pengulangan === 1 && students[i].name){
-                hasilArray.push(students[i]);
-            }
+      hasil[students[i].class] = {}
+      // console.log(students[i].class)
+      hasil[students[i].class].name = students[i].name;
+      hasil[students[i].class].score = students[i].score;
+      for(var j = 0;j < students.length;j++){
+        if(students[i].class === students[j].class && students[i].score < students[j].score){
+          hasil[students[i].class].name = students[j].name;
+          hasil[students[i].class].score = students[j].score; 
         }
-        
+      }
     }
-    for(var k = 0;k < hasilArray.length;k++){
-        hasil[hasilArray[k].class] = {name: hasilArray[k].name,score: hasilArray[k].score};
-    }
-    return hasil
+    return hasil  
   }
   
   // TEST CASE

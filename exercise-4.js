@@ -1,32 +1,16 @@
 function graduates (students) {
-    var hasilArray =[];
     var hasil = {};
     for(var i = 0 ;i < students.length;i++){
-        var pengulangan = 0;
-        for(var j = 0;j < students.length;j++){
-            if(students[i].class === students[j].class && students[i].name !== students[j].name && students[i].score > 75){
-                hasilArray.push(students[i]);
-            }
-            if(students[i].class === students[j].class){
-                pengulangan++
-            }
-            if(j === students.length-1 && pengulangan === 1 && students[i].name){
-                hasilArray.push(students[i]);
-            }
+      hasil[students[i].class] = [];
+      for(var j = 0;j < students.length;j++){
+        if(students[i].class === students[j].class && students[j].score > 75){
+          hasil[students[i].class].push({name: students[j].name,score: students[j].score})
         }
-        
+      }
+      
+      //  console.log(hasil)
     }
-    var kelasSama = [];
-    for(var k = 0;k < hasilArray.length;k++){
-        
-        for(var l = 0;l < hasilArray.length;l++){
-            if(hasilArray[k].class === hasilArray[l].class){
-                kelasSama.push({name: hasilArray[l].name,score: hasilArray[l].score})
-            }
-        }
-        hasil[hasilArray[k].class]=kelasSama
-        kelasSama = []
-    }
+    
     return hasil
   }
   

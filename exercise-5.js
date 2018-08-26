@@ -18,12 +18,13 @@ function attack (damage) {
 }
 
 function damageCalculation (numberOfAttacks, damagePerAttack) {
-    var hasil = 0;
+    //var hasil = 0;
     var damage = attack(damagePerAttack);
-    for(var i = 0;i < numberOfAttacks;i++){
-        hasil+=damage
-    }
-    return hasil
+    // for(var i = 0;i < numberOfAttacks;i++){
+    //     hasil+=damage
+    // }
+    //return hasil
+    return numberOfAttacks * damage
 }
 
 // TEST CASE

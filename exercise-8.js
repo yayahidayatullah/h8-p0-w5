@@ -6,7 +6,7 @@ Code
 */
 
 function cariPelaku(str) {
-  return str.match(/abc+/g).length
+  return str.match(/abc/g).length
 }
 
 // TEST CASES
